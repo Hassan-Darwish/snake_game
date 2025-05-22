@@ -1,14 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package project;
+package snake_game.logic;
 
-
-/**
- *
- * @author Yousef Tantawy
- */
 public class InputHandler 
 {
     private Direction move = Direction.NULL;
@@ -16,10 +7,10 @@ public class InputHandler
     {
         switch(d)
         {
-            case Direction.W:
-            case Direction.S:
-            case Direction.A:
-            case Direction.D:
+            case W:
+            case S:
+            case A:
+            case D:
                 move = d;
                 break;
             default:
