@@ -43,8 +43,8 @@ public class Food
      */
     public void generateNewFood()
     {
-        foodCoordinates.setX(random.nextInt(GameBoard.getWidth()));   
-        foodCoordinates.setY(random.nextInt(GameBoard.getHeight()));   
+        foodCoordinates.setX(random.nextInt(GameBoard.getWidth()));  
+        foodCoordinates.setY(random.nextInt(GameBoard.getHeight()));
     }
 
     /*
