@@ -6,5 +6,5 @@ package snake_game.logic;
  */
 public enum Direction 
 {
-    NULL, W, A, S, D
+    NULL, UP, DOWN, LEFT, RIGHT
 } 

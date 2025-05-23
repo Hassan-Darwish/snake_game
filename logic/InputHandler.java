@@ -7,10 +7,10 @@ public class InputHandler
     {
         switch(d)
         {
-            case W:
-            case S:
-            case A:
-            case D:
+            case UP:
+            case DOWN:
+            case LEFT:
+            case RIGHT:
                 move = d;
                 break;
             default:
