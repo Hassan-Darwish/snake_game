@@ -24,8 +24,8 @@ import snake_game.logic.Coordinates;
  *                 for boundaries and occupied cells.
  ******************************************************************************/
 public class GameBoard {
-    public static final int DEFAULT_ROW_SIZE = 40;  // Number of rows on the board
-    public static final int DEFAULT_COL_SIZE = 30;  // Number of columns on the board
+    public static final int DEFAULT_ROW_SIZE = 16;  // Number of rows on the board
+    public static final int DEFAULT_COL_SIZE = 14;  // Number of columns on the board
 
     private Snake snake;  // The snake instance moving on this board
 
@@ -41,7 +41,7 @@ public class GameBoard {
         snake = new Snake(snakeStartingPosition);
 
         Coordinates appleStartingPosition = new Coordinates(
-            DEFAULT_ROW_SIZE / 2 + 10,
+            DEFAULT_ROW_SIZE / 2 + 4,
             DEFAULT_COL_SIZE / 2
         );
         // Food food = new Food(appleStartingPosition);
@@ -49,7 +49,7 @@ public class GameBoard {
 
     /*
      *  Description: Checks if the given coordinates are within board boundaries.
-     *  Returns true if inside bounds, false otherwise.
+     *  Returns false if inside bounds, true otherwise.
      */
     public boolean isOutOfBounds(Coordinates boardBoundaries)
     {
@@ -58,9 +58,9 @@ public class GameBoard {
             boardBoundaries.getY() < 0 ||
             boardBoundaries.getY() >= DEFAULT_COL_SIZE)
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     /*
@@ -89,7 +89,7 @@ public class GameBoard {
     /*
      *  Description: Returns the board width (number of rows).
      */
-    public int getWidth()
+    public static int getWidth()
     {
         return DEFAULT_ROW_SIZE;
     }
@@ -97,7 +97,7 @@ public class GameBoard {
     /*
      *  Description: Returns the board height (number of columns).
      */
-    public int getHeight()
+    public static int getHeight()
     {
         return DEFAULT_COL_SIZE;
     }
