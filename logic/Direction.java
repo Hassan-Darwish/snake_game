@@ -19,7 +19,6 @@ package snake_game.logic;
  ******************************************************************************/
 public enum Direction 
 {
-    NULL,  // No movement or initial state
     UP,    // Move upward on the board
     DOWN,  // Move downward on the board
     LEFT,  // Move leftward on the board

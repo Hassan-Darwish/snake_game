@@ -13,13 +13,18 @@
 package snake_game.logic;
 
 /******************************************************************************
+ *  IMPORTS
+ ******************************************************************************/
+import java.awt.event.KeyEvent;
+
+/******************************************************************************
  *  CLASS NAME   : InputHandler
  *  DESCRIPTION  : Processes and maintains the latest valid direction input from
  *                 the player, preventing invalid or null movements.
  ******************************************************************************/
 public class InputHandler 
 {
-    private Direction move = Direction.NULL;  // Currently stored movement direction
+    private Direction move = Direction.RIGHT;  // Currently stored movement direction
 
     /*
      *  Description: Sets the movement direction if it's one of the four valid
@@ -37,7 +42,6 @@ public class InputHandler
                 move = d;
                 break;
             default:
-                move = Direction.NULL;
                 break;
         }
     }
@@ -49,9 +53,33 @@ public class InputHandler
      */
     public Direction getCurrentDirection()
     {
-        if(move != Direction.NULL)
-            return move;
-        return Direction.NULL;
+        return move;
+    }
+
+    public void keyPressed(KeyEvent e)
+    {
+        switch(e.getKeyCode())
+        {
+            case KeyEvent.VK_W:
+                setDirection(Direction.UP);
+                break;
+            case KeyEvent.VK_S:
+                setDirection(Direction.DOWN);
+                break;
+            case KeyEvent.VK_A:
+                setDirection(Direction.LEFT);
+                break;
+            case KeyEvent.VK_D:
+                setDirection(Direction.RIGHT);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void keyTyped(KeyEvent e) 
+    {
+        // Optional: implement if needed
     }
 }  
 
