@@ -18,7 +18,6 @@ package snake_game.logic;
 import snake_game.model.GameBoard;
 import snake_game.model.Snake;
 import snake_game.model.Food;
-import snake_game.logic.Coordinates;
 import java.util.LinkedList;
 
 /******************************************************************************
