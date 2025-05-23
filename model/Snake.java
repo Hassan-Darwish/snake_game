@@ -38,6 +38,9 @@ public class Snake
         snakeBody = new LinkedList<>();
         snakeBody.add(initialPosition); 
         currentDirection = Direction.RIGHT;
+        
+        snakeBody.add(new Coordinates(initialPosition.getX() - 1, initialPosition.getY()));
+        snakeBody.add(new Coordinates(initialPosition.getX() - 2, initialPosition.getY()));
     }
 
     /*

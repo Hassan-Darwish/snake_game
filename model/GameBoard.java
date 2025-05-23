@@ -27,24 +27,14 @@ public class GameBoard {
     public static final int DEFAULT_ROW_SIZE = 16;  // Number of rows on the board
     public static final int DEFAULT_COL_SIZE = 14;  // Number of columns on the board
 
-    private Snake snake;  // The snake instance moving on this board
+    private int[][] board; // the game board itself 
 
     /*
      *  Constructor: Initializes the game board with a new snake at the center.
      */
     public GameBoard()
     {
-        Coordinates snakeStartingPosition = new Coordinates(
-            DEFAULT_ROW_SIZE / 2,
-            DEFAULT_COL_SIZE / 2
-        );
-        snake = new Snake(snakeStartingPosition);
-
-        Coordinates appleStartingPosition = new Coordinates(
-            DEFAULT_ROW_SIZE / 2 + 4,
-            DEFAULT_COL_SIZE / 2
-        );
-        // Food food = new Food(appleStartingPosition);
+        this.board = new int[DEFAULT_COL_SIZE][DEFAULT_ROW_SIZE];
     }
 
     /*
@@ -68,13 +58,8 @@ public class GameBoard {
      *               is out of bounds.
      *  Returns true if occupied or out of bounds, false otherwise.
      */
-    public boolean isOccupied(Coordinates coordinates)
+    public boolean isOccupied(Coordinates coordinates, Snake snake)
     {
-        if (!isOutOfBounds(coordinates))
-        {
-            return true;
-        }
-
         LinkedList<Coordinates> snakeBody = snake.getBody();
         for (Coordinates segment : snakeBody)
         {
@@ -100,6 +85,13 @@ public class GameBoard {
     public static int getHeight()
     {
         return DEFAULT_COL_SIZE;
+    }
+    /*
+     * Description: Return the board itself
+     */
+    public int[][] getBoard()
+    {
+        return board;
     }
 }
 
