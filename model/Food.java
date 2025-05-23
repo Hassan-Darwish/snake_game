@@ -41,7 +41,7 @@ public class Food
      *  Description: Generates a new random position for the food within the
      *               boundaries of the game board.
      */
-    void generateNewFood()
+    public void generateNewFood()
     {
         foodCoordinates.setX(random.nextInt(GameBoard.getWidth()));   
         foodCoordinates.setY(random.nextInt(GameBoard.getHeight()));   
@@ -51,7 +51,7 @@ public class Food
      *  Description: Retrieves the current position of the food.
      *  @return The Coordinates object representing the food’s location.
      */
-    Coordinates getPosition()
+    public Coordinates getPosition()
     {
         return foodCoordinates;
     }

@@ -108,13 +108,13 @@ public class Snake
         switch (currentDirection)
         {
             case UP:
-                return new Coordinates(snakeHead.x, snakeHead.y + 1);
+                return new Coordinates(snakeHead.getX(), snakeHead.getY() + 1);
             case DOWN:
-                return new Coordinates(snakeHead.x, snakeHead.y - 1);
+                return new Coordinates(snakeHead.getX(), snakeHead.getY() - 1);
             case LEFT:
-                return new Coordinates(snakeHead.x - 1, snakeHead.y);
+                return new Coordinates(snakeHead.getX() - 1, snakeHead.getY());
             case RIGHT: 
-                return new Coordinates(snakeHead.x + 1, snakeHead.y);
+                return new Coordinates(snakeHead.getX() + 1, snakeHead.getY());
             default:
                 return snakeHead;
         }
