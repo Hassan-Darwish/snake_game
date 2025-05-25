@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class Renderer 
 {
+    // for testing
     public static void main(String[] args) 
     {
         JFrame frame = new JFrame("Snake in Half-Steps");
