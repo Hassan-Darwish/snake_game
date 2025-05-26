@@ -2,7 +2,7 @@ package snake_game.game;
 
 import snake_game.logic.*;
 import snake_game.model.*;
-import snake_game.UI.Renderer;
+import snake_game.UI.*;
 
 
 public class Game 
@@ -51,9 +51,14 @@ public class Game
             isGameStopped = renderer.stopButton();
             isGamePaused = renderer.pauseButton();
 
-            while(!isGamePaused)
+            if(isGamePaused)
             {
-                isGamePaused = renderer.pauseButton();
+                while(isGamePaused && !isGameStopped)
+                {
+                    isGameStopped = renderer.stopButton();
+                    isGamePaused = renderer.pauseButton();
+                    sleep();  
+                }
             }
 
             snake.move(input.getCurrentDirection());
@@ -74,33 +79,29 @@ public class Game
             if(detector.checkWallCollision(snake, board))
             {
                 gameOver();
+                break;
             }
             if(detector.checkCollisionWithItself(snake))
             {
                 gameOver();
+                break;
             }
             renderer.snakeDrawing(snake);
+            sleep();
         }
     }
-    public void resume()
+    private void sleep() 
     {
-        isGamePaused = false;
-    }
-    public void pause()
-    {
-        isGamePaused = true;
-    }
-    public void stop()
-    {
-        isGameStopped = true;
-    }
-    private void render() 
-    {
-        renderer.render(snake, food, board, score.getScore());
+        try 
+        {
+            Thread.sleep(150); // controls game speed
+        } catch(InterruptedException e)
+        {
+            e.printStackTrace();
+         }
     }
     private void gameOver() 
     {
-        isGameStopped = true;
         renderer.showGameOverScreen(score.getScore());
     }
 }
