@@ -15,7 +15,6 @@ public class Renderer
     // }
     // void boardCreation(GameBoard board)
     // {
-
     // }
     // void foodCreation(Food food)
     // {
@@ -36,7 +35,7 @@ public class Renderer
         JFrame frame = new JFrame("Snake");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(GameBoard.getWidth()*blockSize, GameBoard.getHeight()*blockSize);
-        frame.add(new myPanel.myPanel());
+        frame.add(new myPanel());
         frame.setVisible(true);
     }
 }
