@@ -46,15 +46,14 @@ public class Game
 
     public void start()
     {
-        for(;;)
+        while(!isGameStopped)
         {
-            if(isGameStopped)
-            {
-                break;
-            }
+            isGameStopped = renderer.stopButton();
+            isGamePaused = renderer.pauseButton();
+
             while(!isGamePaused)
             {
-                // wait until game is resumed
+                isGamePaused = renderer.pauseButton();
             }
 
             snake.move(input.getCurrentDirection());
