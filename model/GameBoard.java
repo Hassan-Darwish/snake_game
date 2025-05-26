@@ -27,16 +27,6 @@ public class GameBoard {
     public static final int DEFAULT_ROW_SIZE = 16;  // Number of rows on the board
     public static final int DEFAULT_COL_SIZE = 14;  // Number of columns on the board
 
-    private int[][] board; // the game board itself 
-
-    /*
-     *  Constructor: Initializes the game board with a new snake at the center.
-     */
-    public GameBoard()
-    {
-        this.board = new int[DEFAULT_COL_SIZE][DEFAULT_ROW_SIZE];
-    }
-
     /*
      *  Description: Checks if the given coordinates are within board boundaries.
      *  Returns false if inside bounds, true otherwise.
@@ -85,13 +75,6 @@ public class GameBoard {
     public static int getHeight()
     {
         return DEFAULT_COL_SIZE;
-    }
-    /*
-     * Description: Return the board itself
-     */
-    public int[][] getBoard()
-    {
-        return board;
     }
 }
 
