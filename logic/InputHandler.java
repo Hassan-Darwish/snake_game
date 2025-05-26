@@ -76,11 +76,6 @@ public class InputHandler
                 break;
         }
     }
-
-    public void keyTyped(KeyEvent e) 
-    {
-        // Optional: implement if needed
-    }
 }  
 /******************************************************************************
  *  END OF FILE

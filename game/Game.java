@@ -2,6 +2,7 @@ package snake_game.game;
 
 import snake_game.logic.*;
 import snake_game.model.*;
+import snake_game.UI.*;
 
 
 public class Game 
