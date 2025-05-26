@@ -20,7 +20,7 @@ public class Game
     public boolean isGamePaused = false;
     public boolean isGameStopped = false;
 
-    public Game(Renderer renderer)
+    public Game()
     {
         board = new GameBoard();
 
@@ -38,12 +38,10 @@ public class Game
         );
         food = new Food(appleStartingPosition);
 
-        input = new InputHandler();
+        renderer = new Renderer(snake, food);
+
         score = new ScoreManager();
         detector = new CollisionDetector();
-
-        this.renderer = renderer;
-
     }
 
     public void start()
@@ -72,7 +70,7 @@ public class Game
                 }
                 while((board.isOccupied(food.getPosition(), snake)));
                 
-                renderer.foodCreation();
+                renderer.foodCreation(food);
             }
             if(detector.checkWallCollision(snake, board))
             {
@@ -82,6 +80,7 @@ public class Game
             {
                 gameOver();
             }
+            renderer.snakeDrawing(snake);
         }
     }
     public void resume()
