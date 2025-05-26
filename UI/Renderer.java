@@ -43,13 +43,10 @@ public class Renderer {
     }
 
     public void showGameOverScreen(int score) {
-        JOptionPane.showMessageDialog(
-            frame,
-            "Game Over!\nYour score: " + score,
-            "Game Over",
-            JOptionPane.INFORMATION_MESSAGE
-        );
-        frame.dispose();
+        JOptionPane.showMessageDialog(null,
+        "Game Over!\nYour Score: " + score,
+        "Game Over", JOptionPane.INFORMATION_MESSAGE);
+
     }
 
     public boolean pauseButton() {
@@ -63,5 +60,11 @@ public class Renderer {
     public Direction getDirection() {
         return panel.getCurrentDirection();
     }
+
+    public void showWin() {
+    JOptionPane.showMessageDialog(null,
+        "You Won!",
+        "Victory", JOptionPane.INFORMATION_MESSAGE);
+}
 
 }

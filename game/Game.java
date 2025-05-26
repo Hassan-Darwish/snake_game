@@ -20,6 +20,8 @@ public class Game
     public boolean isGamePaused = false;
     public boolean isGameStopped = false;
 
+    private static final int winningScore = 221;
+
     public Game()
     {
         board = new GameBoard();
@@ -87,6 +89,13 @@ public class Game
                 break;
             }
             renderer.snakeDrawing(snake);
+
+            if(score.getScore() == winningScore)
+            {
+                win();
+                break;
+            }
+
             sleep();
         }
     }
@@ -103,5 +112,10 @@ public class Game
     private void gameOver() 
     {
         renderer.showGameOverScreen(score.getScore());
+    }
+
+    private void win()
+    {
+        renderer.showWin();
     }
 }
