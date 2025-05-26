@@ -2,7 +2,7 @@ package snake_game.game;
 
 import snake_game.logic.*;
 import snake_game.model.*;
-import snake_game.UI.*;
+import snake_game.UI.Renderer;
 
 
 public class Game 
