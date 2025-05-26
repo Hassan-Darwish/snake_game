@@ -11,7 +11,7 @@ public class Game
     private Snake snake;
     private Food food;
 
-    private InputHandler input;
+    //private InputHandler input;
     private ScoreManager score;
     private CollisionDetector detector;
 
@@ -61,7 +61,7 @@ public class Game
                 }
             }
 
-            snake.move(input.getCurrentDirection());
+            snake.move(renderer.getDirection());
 
             if(detector.checkFoodCollision(snake, food))
             {
@@ -94,7 +94,7 @@ public class Game
     {
         try 
         {
-            Thread.sleep(150); // controls game speed
+            Thread.sleep(200); // controls game speed
         } catch(InterruptedException e)
         {
             e.printStackTrace();

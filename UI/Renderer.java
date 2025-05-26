@@ -1,13 +1,10 @@
-/*
- * Renderer.java
- * Bridges Game logic to Swing UI with myPanel
- */
 package snake_game.UI;
 
 import javax.swing.*;
 import snake_game.model.Snake;
 import snake_game.model.Food;
 import snake_game.model.GameBoard;
+import snake_game.logic.Direction;
 
 public class Renderer {
     public static int blockSize = 40;
@@ -56,12 +53,15 @@ public class Renderer {
     }
 
     public boolean pauseButton() {
-        // Hook pause controls here if desired
         return false;
     }
 
     public boolean stopButton() {
-        // Hook stop controls here if desired
         return false;
     }
+
+    public Direction getDirection() {
+        return panel.getCurrentDirection();
+    }
+
 }
