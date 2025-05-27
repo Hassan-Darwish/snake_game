@@ -110,23 +110,23 @@ public class Snake
      *  Description: Computes the next position of the snake head based on direction.
      */
     private Coordinates changeOfPosition(Direction direction)
-{
-    Coordinates snakeHead = snakeBody.getFirst();
-
-    switch (currentDirection)
     {
-        case UP:
-            return new Coordinates(snakeHead.getX(), snakeHead.getY() - 1); // Y-- for up
-        case DOWN:
-            return new Coordinates(snakeHead.getX(), snakeHead.getY() + 1); // Y++ for down
-        case LEFT:
-            return new Coordinates(snakeHead.getX() - 1, snakeHead.getY());
-        case RIGHT:
-            return new Coordinates(snakeHead.getX() + 1, snakeHead.getY());
-        default:
-            return snakeHead;
+        Coordinates snakeHead = snakeBody.getFirst();
+
+        switch (currentDirection)
+        {
+            case UP:
+                return new Coordinates(snakeHead.getX(), snakeHead.getY() - 1); // Y-- for up
+            case DOWN:
+                return new Coordinates(snakeHead.getX(), snakeHead.getY() + 1); // Y++ for down
+            case LEFT:
+                return new Coordinates(snakeHead.getX() - 1, snakeHead.getY());
+            case RIGHT:
+                return new Coordinates(snakeHead.getX() + 1, snakeHead.getY());
+            default:
+                return snakeHead;
+        }
     }
-}
 
 }
 
