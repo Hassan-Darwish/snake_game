@@ -30,23 +30,13 @@ public class InputHandler implements KeyListener
 
     public Direction getDirection() 
     {
-        if (this.getX() == 1 && this.getY() == 0) return Direction.RIGHT;
-        if (this.getX()  == -1 && this.getY() == 0) return Direction.LEFT;
-        if (this.getX()  == 0 && this.getY() == 1) return Direction.DOWN;
-        if (this.getX()  == 0 && this.getY() == -1) return Direction.UP;
+        if (dx == 1 && dy == 0) return Direction.RIGHT;
+        if (dx  == -1 && dy == 0) return Direction.LEFT;
+        if (dx  == 0 && dy == 1) return Direction.DOWN;
+        if (dx  == 0 && dy == -1) return Direction.UP;
         return Direction.RIGHT;
     }
 
     @Override public void keyReleased(KeyEvent e) {}
     @Override public void keyTyped(KeyEvent e) {}
-
-    public int getX()
-    {
-        return dx;
-    }
-
-    public int getY()
-    {
-        return dy;
-    }
 }

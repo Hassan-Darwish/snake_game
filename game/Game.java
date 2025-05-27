@@ -34,7 +34,9 @@ public class Game
     public boolean isGamePaused = false;    // Pause flag
     public boolean isGameStopped = false;   // Stop flag
 
+    private boolean isGrowing = false;
     private static final int winningScore = 221; // Score required to win
+    Coordinates snakeTail;
 
     /*
      *  Constructor: Initializes game components and their starting positions.
@@ -71,33 +73,26 @@ public class Game
     {
         while(!isGameStopped)
         {
-            isGameStopped = renderer.stopButton();
-            isGamePaused = renderer.pauseButton();
-
-            if(isGamePaused)
-            {
-                while(isGamePaused && !isGameStopped)
-                {
-                    isGameStopped = renderer.stopButton();
-                    isGamePaused = renderer.pauseButton();
-                    sleep();  
-                }
-            }
-
             snake.move(input.getDirection());
 
             if(detector.checkFoodCollision(snake, food))
             {
-                snake.grow();
+                snakeTail = snake.getBody().getLast();
                 score.incrementScore();
-                
+                isGrowing = true;
                 do
                 {
                     food.generateNewFood();
                 }
                 while((board.isOccupied(food.getPosition(), snake)));
-                
+
                 renderer.foodCreation(food);
+            }
+
+            if(isGrowing)
+            {
+                snake.grow(snakeTail);
+                isGrowing = false;
             }
             if(detector.checkWallCollision(snake, board))
             {
@@ -128,7 +123,7 @@ public class Game
     {
         try 
         {
-            Thread.sleep(200); // controls game speed
+            Thread.sleep(300); // controls game speed
         } catch(InterruptedException e)
         {
             e.printStackTrace();

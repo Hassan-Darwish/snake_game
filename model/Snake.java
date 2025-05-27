@@ -84,10 +84,9 @@ public class Snake
      *  Description: Adds a new head to the snake without removing the tail,
      *               effectively growing the snake.
      */
-    public void grow()
+    public void grow(Coordinates tail)
     {
-        Coordinates snakeHead = changeOfPosition(currentDirection);
-        snakeBody.addFirst(snakeHead);
+        snakeBody.addLast(tail);
     }
 
     /*
