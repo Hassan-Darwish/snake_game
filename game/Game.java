@@ -29,14 +29,11 @@ public class Game
     private CollisionDetector detector;     // Collision logic
 
     private Renderer renderer;              // UI rendering
-    private InputHandler input;
-    
-    public boolean isGamePaused = false;    // Pause flag
-    public boolean isGameStopped = false;   // Stop flag
+    private InputHandler input;             // UI Input Handling logic
 
-    private boolean isGrowing = false;
+    private boolean isGameStopped = false;  // checks if game is stopped
+
     private static final int winningScore = 221; // Score required to win
-    Coordinates snakeTail;
 
     /*
      *  Constructor: Initializes game components and their starting positions.
@@ -71,30 +68,25 @@ public class Game
      */
     public void start()
     {
+
         while(!isGameStopped)
         {
             snake.move(input.getDirection());
 
             if(detector.checkFoodCollision(snake, food))
             {
-                snakeTail = snake.getBody().getLast();
+                Coordinates snakeTail = snake.getBody().getLast();
+
                 score.incrementScore();
-                isGrowing = true;
                 do
                 {
                     food.generateNewFood();
                 }
                 while((board.isOccupied(food.getPosition(), snake)));
-
+                
                 renderer.foodCreation(food);
-            }
-
-            if(isGrowing)
-            {
                 snake.grow(snakeTail);
-                isGrowing = false;
             }
-            
             if(detector.checkWallCollision(snake, board))
             {
                 gameOver();
@@ -124,7 +116,7 @@ public class Game
     {
         try 
         {
-            Thread.sleep(300); // controls game speed
+            Thread.sleep(250); // controls game speed
         } catch(InterruptedException e)
         {
             e.printStackTrace();

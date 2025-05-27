@@ -3,7 +3,7 @@
  *  FILE         : Coordinates.java
  *  DESCRIPTION  : Defines the Coordinates class for managing x and y
  *                 positions within the Snake game environment.
- *  AUTHOR       : Yousef Tantawy
+ *  AUTHOR       : Omar Ashraf
  *  DATE CREATED : May 2025
  ******************************************************************************/
  
