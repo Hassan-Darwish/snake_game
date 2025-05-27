@@ -94,6 +94,7 @@ public class Game
                 snake.grow(snakeTail);
                 isGrowing = false;
             }
+            
             if(detector.checkWallCollision(snake, board))
             {
                 gameOver();
