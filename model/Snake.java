@@ -47,17 +47,22 @@ public class Snake
      *  Description: Moves the snake in the specified direction if it's legal.
      *               Adds a new head position and removes the tail.
      */
+
     public void move(Direction direction)
     {
+        Coordinates snakeHead;
         if (!isLegalDirection(direction))
         {
-            return;
+            snakeHead = changeOfPosition(currentDirection);
+
         }
-        Coordinates snakeHead = changeOfPosition(direction);
+        else
+        {
+            snakeHead = changeOfPosition(direction);
+        }
         snakeBody.addFirst(snakeHead);
         snakeBody.removeLast();
     }
-
     /*
      *  Description: Checks whether the new direction is legal.
      *               Prevents reversing into itself.

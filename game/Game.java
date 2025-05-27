@@ -30,7 +30,7 @@ public class Game
 
     private Renderer renderer;              // UI rendering
     private InputHandler input;
-
+    
     public boolean isGamePaused = false;    // Pause flag
     public boolean isGameStopped = false;   // Stop flag
 

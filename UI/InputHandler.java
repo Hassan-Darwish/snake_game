@@ -9,19 +9,21 @@ public class InputHandler implements KeyListener
     private int dy = 0;
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
+    public void keyPressed(KeyEvent e)
+    {
+        switch (e.getKeyCode()) 
+        {
             case KeyEvent.VK_W:
-                if (dy != 1) { dx = 0; dy = -1; }
+                dx = 0; dy = -1;
                 break;
             case KeyEvent.VK_S:
-                if (dy != -1) { dx = 0; dy = 1; }
+                dx = 0; dy = 1;
                 break;
             case KeyEvent.VK_A:
-                if (dx != 1) { dx = -1; dy = 0; }
+                dx = -1; dy = 0;
                 break;
             case KeyEvent.VK_D:
-                if (dx != -1) { dx = 1; dy = 0; }
+                dx = 1; dy = 0;
                 break;
         }
     }
