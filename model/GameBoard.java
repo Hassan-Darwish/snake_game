@@ -24,8 +24,8 @@ import snake_game.logic.Coordinates;
  *                 for boundaries and occupied cells.
  ******************************************************************************/
 public class GameBoard {
-    public static final int DEFAULT_ROW_SIZE = 16;  // Number of rows on the board
-    public static final int DEFAULT_COL_SIZE = 14;  // Number of columns on the board
+    private static final int DEFAULT_ROW_SIZE = 16;  // Number of rows on the board
+    private static final int DEFAULT_COL_SIZE = 14;  // Number of columns on the board
 
     /*
      *  Description: Checks if the given coordinates are within board boundaries.

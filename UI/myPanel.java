@@ -2,29 +2,26 @@ package snake_game.UI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.List;
 
 import snake_game.model.Snake;
 import snake_game.model.Food;
 import snake_game.model.GameBoard;
 import snake_game.logic.Coordinates;
-import snake_game.logic.Direction;
 
-public class myPanel extends JPanel implements KeyListener {
+public class myPanel extends JPanel 
+{
     private Snake snake;
     private Food food;
 
-    private int dx = 1;  // initial direction: RIGHT (1, 0)
-    private int dy = 0;
-
-    public myPanel() {
+    public myPanel(InputHandler input) 
+    {
         setPreferredSize(new Dimension(
             GameBoard.getWidth() * Renderer.blockSize,
             GameBoard.getHeight() * Renderer.blockSize
         ));
         setFocusable(true);
-        addKeyListener(this);
+        addKeyListener(input);
         requestFocusInWindow();
     }
 
@@ -34,14 +31,6 @@ public class myPanel extends JPanel implements KeyListener {
 
     public void setFood(Food food) {
         this.food = food;
-    }
-
-    public Direction getCurrentDirection() {
-        if (dx == 1 && dy == 0) return Direction.RIGHT;
-        if (dx == -1 && dy == 0) return Direction.LEFT;
-        if (dx == 0 && dy == 1) return Direction.DOWN;
-        if (dx == 0 && dy == -1) return Direction.UP;
-        return Direction.RIGHT; // default fallback
     }
 
     @Override
@@ -81,25 +70,4 @@ public class myPanel extends JPanel implements KeyListener {
             }
         }
     }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                if (dy != 1) { dx = 0; dy = -1; }
-                break;
-            case KeyEvent.VK_S:
-                if (dy != -1) { dx = 0; dy = 1; }
-                break;
-            case KeyEvent.VK_A:
-                if (dx != 1) { dx = -1; dy = 0; }
-                break;
-            case KeyEvent.VK_D:
-                if (dx != -1) { dx = 1; dy = 0; }
-                break;
-        }
-    }
-
-    @Override public void keyReleased(KeyEvent e) {}
-    @Override public void keyTyped(KeyEvent e) {}
 }

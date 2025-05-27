@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  MODULE NAME  : Game Loop Controller
+ *  FILE         : Game.java
+ *  DESCRIPTION  : Coordinates all Snake game components: board, snake, food,
+ *                 rendering, scoring, and collision detection. Manages the
+ *                 main game loop, pause/resume, win and game-over states.
+ *  AUTHOR       : Hassan Darwish
+ *  DATE CREATED : May 2025
+ ******************************************************************************/
 package snake_game.game;
 
 import snake_game.logic.*;
@@ -5,23 +14,31 @@ import snake_game.model.*;
 import snake_game.UI.*;
 
 
+/******************************************************************************
+ *  CLASS NAME   : Game
+ *  DESCRIPTION  : Implements the main game loop and orchestrates interactions
+ *                 between game entities and UI renderer.
+ ******************************************************************************/
 public class Game 
 {
-    private GameBoard board;
-    private Snake snake;
-    private Food food;
+    private GameBoard board;                // Game board grid
+    private Snake snake;                    // Snake entity
+    private Food food;                      // Food entity
 
-    //private InputHandler input;
-    private ScoreManager score;
-    private CollisionDetector detector;
+    private ScoreManager score;             // Score tracking
+    private CollisionDetector detector;     // Collision logic
 
-    private Renderer renderer;
+    private Renderer renderer;              // UI rendering
+    private InputHandler input;
 
-    public boolean isGamePaused = false;
-    public boolean isGameStopped = false;
+    public boolean isGamePaused = false;    // Pause flag
+    public boolean isGameStopped = false;   // Stop flag
 
-    private static final int winningScore = 221;
+    private static final int winningScore = 221; // Score required to win
 
+    /*
+     *  Constructor: Initializes game components and their starting positions.
+     */
     public Game()
     {
         board = new GameBoard();
@@ -40,12 +57,16 @@ public class Game
         );
         food = new Food(appleStartingPosition);
 
-        renderer = new Renderer(snake, food);
+        input = new InputHandler();
+        renderer = new Renderer(snake, food, input);
 
         score = new ScoreManager();
         detector = new CollisionDetector();
     }
 
+    /*
+     *  Description: Starts and runs the main game loop until stop condition.
+     */
     public void start()
     {
         while(!isGameStopped)
@@ -63,7 +84,7 @@ public class Game
                 }
             }
 
-            snake.move(renderer.getDirection());
+            snake.move(input.getDirection());
 
             if(detector.checkFoodCollision(snake, food))
             {
@@ -99,6 +120,10 @@ public class Game
             sleep();
         }
     }
+
+    /*
+     *  Description: Pauses execution for a fixed interval to control game speed.
+     */
     private void sleep() 
     {
         try 
@@ -109,13 +134,24 @@ public class Game
             e.printStackTrace();
          }
     }
+
+    /*
+     *  Description: Triggers the game over UI and stops the loop.
+     */
     private void gameOver() 
     {
         renderer.showGameOverScreen(score.getScore());
     }
 
+    /*
+     *  Description: Triggers the win UI when the winning score is reached.
+     */
     private void win()
     {
         renderer.showWin();
     }
 }
+
+/******************************************************************************
+ *  END OF FILE
+ ******************************************************************************/
