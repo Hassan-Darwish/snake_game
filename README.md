@@ -29,7 +29,7 @@ snake_game/
 │   └── Game.java          # Main game loop controller
 └── Main.java          # Entry point to start the game
 ```
-## :tools: Features
+## Features
 - Grid-based logic for snake and food positioning.
 - Modular design: Renderer, Logic, Model separated.
 - Keyboard input (WASD) with smooth movement.
@@ -38,10 +38,10 @@ snake_game/
   
 ## How to Run
 
-# Requirements
+### Requirements
 Java JDK 11+
 
-# Script
+### Script
 ```bash
 # Compile the project
 javac -d out -cp . Main.java game/Game.java logic/*.java model/*.java UI/*.java
